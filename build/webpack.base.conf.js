@@ -23,6 +23,7 @@ let config = {
       $css: path.resolve(root, 'src/assert/css'),
       $js: path.resolve(root, 'src/assert/js'),
       $tem: path.resolve(root, 'src/assert/templates'),
+      $vuex: path.resolve(root, 'scr/vuex'),
       vue$: 'vue/dist/vue.esm.js'
     }
   },
@@ -91,7 +92,7 @@ let config = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: 'assets/css/[name].[contenthash].css',
+      filename: 'static/css/[name].[contenthash].css',
       allChunks: true
     }),
   ]
