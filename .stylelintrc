@@ -9,6 +9,14 @@
     "order/order": [
       "custom-properties",
       "declarations"
-    ]
+    ],
+    "color-no-invalid-hex": true,
+    "unit-no-unknown": true,
+    "property-no-unknown": true,
+    "selector-pseudo-class-no-unknown": true,
+    "selector-pseudo-element-no-unknown": true,
+    "at-rule-no-unknown": true,
+    "comment-no-empty": true,
+    "no-invalid-double-slash-comments": true
   }
 }

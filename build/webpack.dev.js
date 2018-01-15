@@ -6,6 +6,7 @@ const root = process.cwd();
 const merge = require('webpack-merge')
 const config = require(root + '/config/default');
 const CommonsChunkPlugin = require('./CommonsChunkPlugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 let devWebpack = merge(BaseConf, {
   output: {
@@ -37,6 +38,10 @@ let devWebpack = merge(BaseConf, {
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
+    new StyleLintPlugin({
+      files: ['**/*.s?(a|c)ss', '**/*.vue'],
+      // syntax: 'scss'
+    }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false)
     })

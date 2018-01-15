@@ -20,7 +20,6 @@
   </div>
 </template>
 <script>
-  import './css/test.scss';
   export default {
     name: 'index',
   };
