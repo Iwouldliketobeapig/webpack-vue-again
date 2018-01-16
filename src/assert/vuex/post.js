@@ -4,16 +4,23 @@ const modulePost = {
   state: {
     posts: {}
   },
+  getters: {
+    getPosts: state => {
+      return state.posts
+    }
+  },
   mutations: {
-    posts (list) {
-      state.posts = list;
+    posts (state, posts) {
+      state.posts = posts;
     }
   },
   actions: {
-    posts (context) {
-      axios.get('/api/v2/posts')
+    posts (context, options) {
+      axios.get('/api/v2/posts', {
+        params: options
+      })
       .then(res => {
-        context.commit(`posts(${res.data.data})`);
+        context.commit(`posts`, res.data.data);
       })
     }
   }
