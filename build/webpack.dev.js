@@ -14,6 +14,15 @@ let devWebpack = merge(BaseConf, {
     chunkFilename: '[id].js'
   },
   devtool: 'eval-source-map',
+  module: {
+    rules: [
+      {
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loaders: "eslint-loader"
+      }
+    ]
+  },
   devServer: {
     proxy: {
       '/api/v2': 'http://172.19.3.186:25001'

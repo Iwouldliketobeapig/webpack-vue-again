@@ -21,8 +21,9 @@
 </template>
 <script>
   export default {
-    name: 'index',
+    name: 'index'
   };
+  
 </script>
 <style lang="scss">
   .index{

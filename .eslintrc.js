@@ -1,5 +1,6 @@
 module.exports = {
-	"extends": "vue",
+	extends: ["vue", "plugin:vue/base"],
+	plugins: ['html'],
 	globals: {
 		Promise: true,
 		module: true,

@@ -91,7 +91,7 @@ let config = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: 'assets/css/[name].[contenthash].css',
+      filename: 'static/css/[name].[contenthash].css',
       allChunks: true
     }),
   ]
