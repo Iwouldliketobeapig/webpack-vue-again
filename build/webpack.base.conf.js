@@ -22,7 +22,7 @@ const config = {
       $css: path.resolve(root, 'src/assert/css'),
       $js: path.resolve(root, 'src/assert/js'),
       $tem: path.resolve(root, 'src/assert/templates'),
-      $vuex: path.resolve(root, 'scr/vuex'),
+      $vuex: path.resolve(root, 'src/assert/vuex'),
       vue$: 'vue/dist/vue.esm.js'
     }
   },

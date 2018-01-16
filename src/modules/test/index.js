@@ -3,6 +3,7 @@ import App from './App';
 import Vuex from 'vuex';
 import Post from '$vuex/post';
 
+Vue.use(Vuex);
 const store = new Vuex.Store({
   modules: {
     post: Post
