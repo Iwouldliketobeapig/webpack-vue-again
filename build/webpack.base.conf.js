@@ -1,11 +1,10 @@
 const Entry = require('./webpack.entry');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
 const root = process.cwd();
-let config = {
+const config = {
   entry: Object.assign({}, Entry, {
     verdon1: ['vue', 'normalize.css', 'vuex'],
     verdon2: ['$css/common.css', '$js/common.js']
@@ -37,10 +36,10 @@ let config = {
         loader: 'babel-loader',
         exclude: /node_modules/
       },
-      {  
+      {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
+          fallback: 'style-loader',
           use: [
             {
               loader: 'css-loader',
@@ -93,19 +92,18 @@ let config = {
     new ExtractTextPlugin({
       filename: 'static/css/[name].[contenthash].css',
       allChunks: true
-    }),
+    })
   ]
-}
+};
 const nameKeys = Object.keys(Entry);
-nameKeys.forEach((key => {
-  let plugin =  new HtmlWebpackPlugin({
-    filename: `templates/${key}.html`,
-    inject: 'true',
-    template: 'src/assert/templates/index.html',
-    chunks: [key, 'verdon1', 'verdon2'],
-    hash: true
-  })
-  config.plugins.push(plugin);
-}))
+const htmlPlugins = nameKeys.map(key => new HtmlWebpackPlugin({
+  filename: `templates/${key}.html`,
+  inject: 'true',
+  template: 'src/assert/templates/index.html',
+  chunks: [key, 'verdon1', 'verdon2'],
+  hash: true
+})
+);
+config.plugins = config.plugins.concat(htmlPlugins);
 
 module.exports = config;

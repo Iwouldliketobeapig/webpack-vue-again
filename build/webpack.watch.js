@@ -3,13 +3,13 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CommonsChunkPlugin = require('./CommonsChunkPlugin');
 
-let watchWebpack = merge(BaseConf, {
+const watchWebpack = merge(BaseConf, {
   watchOptions: {
     ignored: /node_modules/
   },
   plugins: [
-    new CommonsChunkPlugin(0 ,{
-      names: ["verdon2","verdon1"],
+    new CommonsChunkPlugin(0, {
+      names: ['verdon2', 'verdon1'],
       minChunks: Infinity
     }),
     new webpack.DefinePlugin({

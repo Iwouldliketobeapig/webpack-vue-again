@@ -8,7 +8,7 @@ const config = require(root + '/config/default');
 const CommonsChunkPlugin = require('./CommonsChunkPlugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 
-let devWebpack = merge(BaseConf, {
+const devWebpack = merge(BaseConf, {
   output: {
     filename: 'assets/js/[name].js',
     chunkFilename: '[id].js'
@@ -19,7 +19,7 @@ let devWebpack = merge(BaseConf, {
       {
         test: /\.(js|vue)$/,
         exclude: /node_modules/,
-        loaders: "eslint-loader"
+        loaders: 'eslint-loader'
       }
     ]
   },
@@ -42,14 +42,14 @@ let devWebpack = merge(BaseConf, {
   },
   plugins: [
     new CommonsChunkPlugin(2, {
-      names: ["verdon2","verdon1"],
+      names: ['verdon2', 'verdon1'],
       minChunks: Infinity
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new StyleLintPlugin({
       files: ['**/*.s?(a|c)ss', '**/*.vue'],
-      // syntax: 'scss'
+      syntax: 'scss'
     }),
     new webpack.DefinePlugin({
       PRODUCTION: JSON.stringify(false)
