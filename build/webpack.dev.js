@@ -55,6 +55,6 @@ const devWebpack = merge(BaseConf, {
       PRODUCTION: JSON.stringify(false)
     })
   ]
-})
+});
 
 module.exports = devWebpack;

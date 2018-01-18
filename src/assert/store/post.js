@@ -6,7 +6,7 @@ const modulePost = {
   },
   getters: {
     getPosts: state => {
-      return state.posts
+      return state.posts;
     }
   },
   mutations: {
@@ -19,11 +19,11 @@ const modulePost = {
       axios.get('/api/v2/posts', {
         params: options
       })
-      .then(res => {
-        context.commit(`posts`, res.data.data);
-      })
+        .then(res => {
+          context.commit('posts', res.data.data);
+        });
     }
   }
-}
+};
 
 export default modulePost;

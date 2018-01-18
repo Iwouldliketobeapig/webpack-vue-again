@@ -16,6 +16,6 @@ const watchWebpack = merge(BaseConf, {
       PRODUCTION: JSON.stringify(false)
     })
   ]
-})
+});
 
 module.exports = watchWebpack;
